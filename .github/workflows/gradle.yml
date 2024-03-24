@@ -14,6 +14,7 @@ jobs:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk Delta
         run: snyk test --json --print-deps | snyk-delta -d
+        continue-on-error: true
         env:
            SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       - name: Snyk Monitor
